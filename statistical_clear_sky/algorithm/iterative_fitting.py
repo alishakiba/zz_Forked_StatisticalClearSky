@@ -43,7 +43,10 @@ class IterativeFitting(SerializationMixin, PlotMixin):
         """
         self._solver_type = solver_type
         self._rank_k = rank_k
-        if data_handler_obj is None and data_matrix is None:
+        if data_handler_obj is not None:
+            print('Removed to make the method independent.')
+            raise NotImplementedError('Removed to make the method independent.')
+        elif data_handler_obj is None and data_matrix is None:
             print('Please initialize class with a data set')
         elif data_handler_obj is not None:
             data_matrix = data_handler_obj.filled_data_matrix
